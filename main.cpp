@@ -1,31 +1,56 @@
 #include <iostream>
-#include <map>
+
 using namespace std;
+
+int vowels(string str)
+{
+	int hash[5] = { 0 };
+
+	for (int j = 0; j < str.length(); j++) {
+
+		if (str[j] == 'A' || str[j] == 'a')
+			hash[0] = 1;
+
+		else if (str[j] == 'E' || str[j] == 'e')
+			hash[1] = 1;
+
+		else if (str[j] == 'I' || str[j] == 'i')
+			hash[2] = 1;
+
+		else if (str[j] == 'O' || str[j] == 'o')
+			hash[3] = 1;
+
+		else if (str[j] == 'U' || str[j] == 'u')
+			hash[4] = 1;
+	}
+
+	for (int i = 0; i < 5; i++) {
+		if (hash[i] == 0) {
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int Vowelsout(string str)
+{
+
+	if (vowels(str))
+		cout <<"NO\n";
+	else
+		cout <<"YES\n";
+}
 
 int main()
 {
-    //cout << "Hello world!" << endl;
-    map <int,string> customer;
+	int o;
+	cin>>o;
+	while(o--)
+	{
+		string str;
+		cin>>str;
+		Vowelsout(str);
+	}
 
-    customer[100]="tony";
-    customer[123]="chan";
-
-    customer.insert(pair<int,string>(309,"chandan"));
-   // map <int,string> v{{100,"chandan"},(123,"kumar");
-   // }
-   /*cout<<customer[100]<<endl;
-    cout<<customer[123];
-*/
-
-    map <int,string>::iterator p= customer.begin();    //map<datatype>
-    while(p!=customer.end()){
-        cout<<p->second<<endl;
-        p++;
-    } //iterator
-
-    cout<<customer.size();  // for size
-    cout<<customer.empty();
-
-    customer.insert(pair<int,string>(309,"chandan")); // pair of int and string
-    return 0;
+	return 0;
 }
